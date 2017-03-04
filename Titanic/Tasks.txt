@@ -1,0 +1,14 @@
+﻿1. Load data X
+2. Graph base variables X
+3. Excel of the statistics
+	num total -> IGNORE and add percentages too
+	num unique
+	num null
+	num mode
+	average
+	SD
+
+
+Dealing with NULLs
+Create error metric
+Create variable relevance

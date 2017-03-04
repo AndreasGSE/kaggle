@@ -1,0 +1,5 @@
+﻿1. Basic exploratory
+2. Correlations / feature importance
+3. Feature creation
+4. Proper evaluation / training
+5. Automated feature selection + automated parameter tuning

@@ -1,0 +1,28 @@
+A nodule is a mark on the lung in a CT scan - 
+the appearance of nodules will indicate the possibility of having a cancer and its status.
+
+In the tutorial they train an algorithm to identify nodules in ct scans - then use the details
+of those nodules to determine presence of cancer etc.
+- they find the largest nodule in a scan and then return the slices that contain that in the centre
+- then they pick the slices above and below to get more of the shape - this could be varied
+- similarly - could pick slices not centred on the nodule
+
+One of the key difficulties is that we are dealing with scans that have their own coordinate systems
+- these will be primarily defined by the spacing and the real world dimensions of the array
+- to get a similar structure we would need to RESAMPLE - whereby we average to reduce and copy to increase
+- then to convert to pixel coordinates - you would just "normalise" - minus the origin and divide by spacing
+- note that the axes can be different
+
+If we want to feed into a neural net - we need to have equal sized arrays for the images
+
+A mask is a filter that you put over the image to filter out parts of the image
+- e.g. you would design a mask that you multiply by the original image to get the nodule
+- They design it just by locating where the nodule is and assigning that a weight of 1
+
+
+It may also be important to isolate features in the image - such as the lungs
+- this is achieved by thresholding - if we set all things above / below a value to 1 or 0,
+  then we will clean up the image a bit and locate what we want
+- There may be dud features at the high and low end of intensity - so they set max and min to the mean values
+  and then use k means clustering to define k = n number of features we are interested in, where
+  we cluster in intensity space - then threshold based on the centroids

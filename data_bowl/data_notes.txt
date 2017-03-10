@@ -1,0 +1,2 @@
+structure
+	Have set number of patients who have a number of scans - does not have to be equal
